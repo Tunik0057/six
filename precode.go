@@ -108,7 +108,7 @@ func getTask(w http.ResponseWriter, r *http.Request) {
 func deleteTask(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
 	if _, exists := tasks[id]; exists {
-		delete(tasks[id])
+		delete(tasks, id)
 	} else {
 		http.Error(w, "Таск не найден", http.StatusBadRequest)
 		return
